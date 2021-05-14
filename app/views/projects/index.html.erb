@@ -1,0 +1,45 @@
+<div class="container">
+    <h3>Crear un nuevo proyecto</h3>
+    <button type="submit" class="btn btn-warning btn-sm"><%= link_to "Crear un proyecto", projects_index_path%></button>
+</div>
+
+<br>
+
+<div class="container">
+    <h3>Filtrar proyectos por estado</h3>
+    <form>
+        <select name="state">
+            <option value="propuesta">propuesta</option>
+            <option value="en progreso">en progreso</option>
+            <option value="terminado">terminado</option>
+        </select>
+    <button type="submit" class="btn btn-dark btn-sm ml-3">Filtrar</button>
+    </form>     
+</div>   
+
+<br>
+
+<div class="container">
+    <h1>Proyectos</h1>
+    
+    <table class="table">
+        <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Fecha de comienzo</th>
+            <th>Fecha de término</th>
+            <th>Estado</th>
+        </tr>
+        <% @projects.each do |project| %>
+            <tr>
+                <td><%= project.name %></td>
+                <td><%= project.description %></td>
+                <td><%= project.start %></td>
+                <td><%= project.end %></td>
+                <td><%= project.state %></td>
+            </tr>
+        <% end %>
+    </table>
+    <br>
+</div>
+
