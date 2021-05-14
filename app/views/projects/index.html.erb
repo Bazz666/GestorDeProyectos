@@ -1,45 +1,32 @@
 <div class="container">
-    <h3>Crear un nuevo proyecto</h3>
-    <button type="submit" class="btn btn-warning btn-sm"><%= link_to "Crear un proyecto", projects_index_path%></button>
+    <h2>Crear nuevo rroyecto / Add new project</h2>
+    <form id="create_projects" method="get" action="/projects/created">
+        <div class="form-group">
+            <label for="name">Nombre</label>
+            <input name="name" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="description">Descripcion</label>
+            <input name="description" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="start">Fecha Comienzo</label>
+            <input name="start" type="date" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="end">Fecha Término</label>
+            <input name="end" type="date" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="state">Estado</label>
+            <select name="state" id="" class="form-control">
+                <option value="propuesta">Propuesta</option>
+                <option value="en progreso">En progreso</option>
+                <option value="terminado">Terminado</option>
+            </select>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-info btn-sm ml-3">Crear</button>
+        <button type="submit" class="btn btn-success btn-sm"><%= link_to "volver / back", projects_dashboard_path%></button>
+    </form>
 </div>
-
-<br>
-
-<div class="container">
-    <h3>Filtrar proyectos por estado</h3>
-    <form>
-        <select name="state">
-            <option value="propuesta">propuesta</option>
-            <option value="en progreso">en progreso</option>
-            <option value="terminado">terminado</option>
-        </select>
-    <button type="submit" class="btn btn-dark btn-sm ml-3">Filtrar</button>
-    </form>     
-</div>   
-
-<br>
-
-<div class="container">
-    <h1>Proyectos</h1>
-    
-    <table class="table">
-        <tr>
-            <th>Nombre</th>
-            <th>Descripción</th>
-            <th>Fecha de comienzo</th>
-            <th>Fecha de término</th>
-            <th>Estado</th>
-        </tr>
-        <% @projects.each do |project| %>
-            <tr>
-                <td><%= project.name %></td>
-                <td><%= project.description %></td>
-                <td><%= project.start %></td>
-                <td><%= project.end %></td>
-                <td><%= project.state %></td>
-            </tr>
-        <% end %>
-    </table>
-    <br>
-</div>
-
